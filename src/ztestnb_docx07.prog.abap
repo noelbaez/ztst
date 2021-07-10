@@ -1,4 +1,4 @@
-REPORT ztestnb_docx2pdf.
+REPORT ztestnb_DOCX07.
 
 INCLUDE ole2incl.
 DATA gs_word TYPE ole2_object.
