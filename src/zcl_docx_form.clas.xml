@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>The docx form class</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>CONTAINS_CUSTOMXML</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Checks docx form for customXML files</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>CREATE_FORM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Creates an empty docx form</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>CREATE_PDFPREVIEW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>PDF preview</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>EXTRACT_TEXTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Extracts all translation relevant texts</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>GET_XSD_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Inserts  the form context  XSD schema as customXML file.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>INSERT_XSD_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Inserts  the form context  XSD schema as customXML file.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>MERGE_DATA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Static method of merge form and custom XML data</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>MERGE_TEXTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Merges text chunks according to their ID.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>PRINT_DOCX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Print docx</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>REPLACE_XML_DATA_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Inserts  the data xml as customXML file.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>SET_SAP_FORM_USER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set SAP FORM CREATER USER in SETTINGS.XML</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>UPDATE_TRANSLATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Updates the translated texts of s docx template</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_FORM</CLSNAME>
+     <CMPNAME>UPDATE_TRANSLATION_TAGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Tags all translation relevant texts with unique ID.</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

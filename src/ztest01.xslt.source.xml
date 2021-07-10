@@ -1,0 +1,43 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="PROTOCOL_VERSION"/>
+  <tt:root name="CHECK_ID"/>
+  <tt:root name="MESSAGE_ID"/>
+  <tt:root name="MESSAGE_TEXT"/>
+  <tt:root name="CREATOR"/>
+  <tt:root name="XMLNS"/>
+  <tt:root name="T_ARGUMENTS"/>
+
+  <tt:template>
+    <ServiceProtocol>
+      <tt:attribute name="version" value-ref="PROTOCOL_VERSION"/>
+      <tt:attribute name="xmlns" value-ref="XMLNS"/>
+
+      <CmdTest>
+        <tt:attribute name="CheckId" value-ref="CHECK_ID"/>
+
+        <ExceptionMessage>
+          <id>
+            <tt:value ref="MESSAGE_ID"/>
+          </id>
+          <text>
+            <tt:value ref="MESSAGE_TEXT"/>
+          </text>
+
+          <arguments>
+            <tt:loop name="Arguments" ref="T_ARGUMENTS">
+              <argument>
+                <tt:value ref="$Arguments.ARGUMENT"/>
+              </argument>
+            </tt:loop>
+          </arguments>
+
+          <creator>
+            <tt:value ref="CREATOR"/>
+          </creator>
+
+        </ExceptionMessage>
+      </CmdTest>
+    </ServiceProtocol>
+  </tt:template>
+</tt:transform>

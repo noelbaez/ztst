@@ -1,0 +1,12 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+
+  <tt:root name="OFRC"/>
+  <tt:template>
+    <ls_data>
+      <soldtoname tt:value-ref=".OFRC.SOLDTONAME"/>
+      <soltoid tt:value-ref=".OFRC.SOLDTOID"/>
+    </ls_data>
+  </tt:template>
+
+</tt:transform>
