@@ -1,0 +1,25 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined" xmlns:pool_ZCL_TEST="http://www.sap.com/abapxml/types/class-pool/ZCL_TEST">
+  <!--  <tt:root name="ROOT" type="?"/>-->
+  <tt:root name="DATA" type="pool_ZCL_TEST:TY_DEMO_DEEP"/>
+  <tt:root name="XMLNS"/>
+  <tt:template>
+    <data>
+      <tt:attribute name="xmlns" value-ref="XMLNS"/>
+      <DATA>
+        <F1 tt:value-ref=".DATA.F1"/>
+        <F2 tt:value-ref=".DATA.F2"/>
+        <F3 tt:value-ref=".DATA.F3"/>
+        <TABLE>
+          <tt:loop ref=".DATA.ITEMS">
+            <DATA>
+              <NAME tt:value-ref="NAME"/>
+              <LAST_NAME tt:value-ref="LAST_NAME"/>
+              <DATE tt:value-ref="DATE"/>
+            </DATA>
+          </tt:loop>
+        </TABLE>
+      </DATA>
+    </data>
+  </tt:template>
+</tt:transform>

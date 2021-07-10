@@ -3,19 +3,24 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZTESTNB_XML03</NAME>
+    <NAME>ZTESTNB_XMLCUSTOM</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>E</RLOAD>
+    <RLOAD>S</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL>
+   <I18N_TPOOL>
     <item>
-     <ID>R</ID>
-     <ENTRY>XML 1</ENTRY>
-     <LENGTH>5</LENGTH>
+     <LANGUAGE>S</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>R</ID>
+       <ENTRY>.</ENTRY>
+       <LENGTH>1</LENGTH>
+      </item>
+     </TEXTPOOL>
     </item>
-   </TPOOL>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>
