@@ -10,7 +10,7 @@
         <F1 tt:value-ref=".DATA.F1"/>
         <F2 tt:value-ref=".DATA.F2"/>
         <F3 tt:value-ref=".DATA.F3"/>
-        <TABLE>
+        <TABLE1>
           <tt:loop ref=".DATA.ITEMS">
             <DATA>
               <NAME tt:value-ref="NAME"/>
@@ -18,7 +18,15 @@
               <DATE tt:value-ref="DATE"/>
             </DATA>
           </tt:loop>
-        </TABLE>
+        </TABLE1>
+        <TABLE2>
+          <tt:loop ref=".DATA.COMPANIES">
+            <DATA>
+              <BUKRS tt:value-ref="BUKRS"/>
+              <BUTXT tt:value-ref="BUTXT"/>
+            </DATA>
+          </tt:loop>
+        </TABLE2>
       </DATA>
     </data>
   </tt:template>
