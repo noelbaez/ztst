@@ -166,21 +166,52 @@ module pbo_0100 output.
 *        general_error      = 6
 *        others             = 7.
 
-   doc_url = p_local.
-    lo_doc_proxy->view_document(
-      exporting
-*        document_title = ' '
-        document_url   = doc_url
-*        no_flush       = ' '
-        open_inplace   = 'X'
-*        startup_macro  = ''
-*        user_info      =
-      importing
-        error          = data(error)
-        retcode        = data(retcode)
-    ).
+*   doc_url = p_local.
+*
+*    lo_doc_proxy->view_document(
+*      exporting
+**        document_title = ' '
+*        document_url   = doc_url
+**        no_flush       = ' '
+*        open_inplace   = 'X'
+**        startup_macro  = ''
+**        user_info      =
+*      importing
+*        error          = data(error)
+*        retcode        = data(retcode)
+*    ).
 
 *    lo_doc_proxy->open_document_from_table(
+*      exporting
+*        document_size    = lv_length
+*        document_table   = lt_data_tab
+**    document_title   = ' '
+**    no_flush         = ' '
+*    open_inplace     = 'X'
+**    open_readonly    = ' '
+**    protect_document = ' '
+**    onsave_macro     = ' '              " OnSave Macro Name
+**    startup_macro    = ''
+*      importing
+*        error            = data(error)
+*        retcode          = data(retcode)
+*    ).
+
+    lo_doc_proxy->open_document(
+      exporting
+*        document_title   = ' '
+        document_url     = DOC_URL
+*        no_flush         = ' '
+        open_inplace     = 'X'
+        open_readonly    = 'X'
+        protect_document = 'X'
+*        onsave_macro     = ' '              " OnSave Macro Name
+*        startup_macro    = ''
+*        user_info        =
+*      importing
+*        error            =
+*        retcode          =
+    ).
 *      exporting
 *        document_size    = lv_length
 *        document_table   = lt_data_tab

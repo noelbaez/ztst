@@ -12,8 +12,8 @@ CLASS zcl_test DEFINITION
            tt_demo TYPE TABLE OF ty_demo WITH EMPTY KEY,
 
            BEGIN OF ty_company,
-             bukrs TYPE t001-bukrs,
-             butxt TYPE t001-butxt,
+             bukrs TYPE STRING,
+             butxt TYPE STRING,
            END OF ty_company,
            tt_company TYPE TABLE OF ty_company WITH EMPTY KEY.
 

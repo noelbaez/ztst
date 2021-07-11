@@ -8,7 +8,7 @@ report ztestnb_docx06.
 type-pools soi.
 data save_ok type sy-ucomm.
 data ok_code type sy-ucomm.
-data error type REF TO i_oi_error.
+data error type ref to i_oi_error.
 data retcode type soi_ret_string.
 type-pools soi.
 data gv_url type string.
@@ -22,10 +22,10 @@ data : lv_error_msg type string.
 
 parameters: p_mime  type string default 'r3mime:/sap/public/invoice1.docx' lower case.
 parameters: p_local type string default 'c:\temp\Table_result.docx' lower case.
-PARAMETERS: P_COPIES TYPE I DEFAULT 2.
+parameters: p_copies type i default 1.
 
-parameters: p_xmime  radiobutton group gr1 ,
-            p_xlocal radiobutton group gr1 DEFAULT 'X'.
+*parameters: p_xmime  radiobutton group gr1,
+*            p_xlocal radiobutton group gr1.
 
 start-of-selection.
 
@@ -84,40 +84,38 @@ start-of-selection.
     data: "lv_length   type i,
           lt_data_tab type solix_tab.
 
-    case abap_true.
-      when p_xlocal.
-        "1)
-        call method cl_gui_frontend_services=>gui_upload
-          exporting
-            filename   = p_local
-            filetype   = 'BIN'
-          importing
-            filelength = data(lv_length)
-          changing
-            data_tab   = lt_data_tab.
+    if p_local is not initial.
+      "1)
+      call method cl_gui_frontend_services=>gui_upload
+        exporting
+          filename   = p_local
+          filetype   = 'BIN'
+        importing
+          filelength = data(lv_length)
+        changing
+          data_tab   = lt_data_tab.
 
-      when p_xmime.
-        "2)
-        "Load document from repository
+    elseif p_mime is not initial.
+      "2)
+      "Load document from repository
 *      data gv_url type string.
-        gv_url = p_mime.
+      gv_url = p_mime.
 
 *      data lv_stream type xstring.
-        cl_fxs_url_data_fetcher=>fetch(
-          exporting
-            iv_url          = gv_url
+      cl_fxs_url_data_fetcher=>fetch(
+        exporting
+          iv_url          = gv_url
 *    iv_nocache      = abap_false
-          importing
-            ev_content      = data(lv_stream)
-            ev_content_type = data(ev_ctype)
-            ev_error        = data(ev_error)
-        ).
-        lv_length = xstrlen( lv_stream ).
-        lt_data_tab = cl_bcs_convert=>xstring_to_solix( iv_xstring = lv_stream  ).
-        "-----
+        importing
+          ev_content      = data(lv_stream)
+          ev_content_type = data(ev_ctype)
+          ev_error        = data(ev_error)
+      ).
+      lv_length = xstrlen( lv_stream ).
+      lt_data_tab = cl_bcs_convert=>xstring_to_solix( iv_xstring = lv_stream  ).
+      "-----
 
-      when others.
-    endcase.
+    endif.
 
 *    data doc_url(200).
 *    call function 'DP_CREATE_URL'
@@ -171,16 +169,16 @@ start-of-selection.
         retcode          = retcode
     ).
 
-  DO P_COPIES TIMES.
-    lo_doc_proxy->print_document(
-      exporting
-        no_flush    = ' '
-        prompt_user = ' '
-      importing
-        error       = error
-        retcode     = retcode
-    ).
-  ENDDO.
+    do p_copies times.
+      lo_doc_proxy->print_document(
+        exporting
+          no_flush    = ' '
+          prompt_user = ' '
+        importing
+          error       = error
+          retcode     = retcode
+      ).
+    enddo.
 *
 *    lo_doc_proxy->save_as(
 *      exporting
@@ -206,7 +204,6 @@ start-of-selection.
 *      exit.
 *    endif.
   endif.
-
 
 *  call screen 100.
 
@@ -288,39 +285,36 @@ module pbo_0100 output.
 *    data: lv_length   type i,
 *          lt_data_tab type solix_tab.
 
-    case abap_true.
-      when p_xlocal.
-        "1)
-        call method cl_gui_frontend_services=>gui_upload
-          exporting
-            filename   = 'c:\temp\invoice1.docx'
-            filetype   = 'BIN'
-          importing
-            filelength = lv_length
-          changing
-            data_tab   = lt_data_tab.
-
-      when p_xmime.
-        "2)
-        "Load document from repository
+    if p_local is not initial.
+      "1)
+      call method cl_gui_frontend_services=>gui_upload
+        exporting
+          filename   = 'c:\temp\invoice1.docx'
+          filetype   = 'BIN'
+        importing
+          filelength = lv_length
+        changing
+          data_tab   = lt_data_tab.
+    elseif p_mime is not initial.
+      "2)
+      "Load document from repository
 *      data gv_url type string.
-        gv_url = 'r3mime:/sap/public/Tableconlogo.docx'.
+      gv_url = 'r3mime:/sap/public/Tableconlogo.docx'.
 
 *      data lv_stream type xstring.
-        cl_fxs_url_data_fetcher=>fetch(
-          exporting
-            iv_url          = gv_url
+      cl_fxs_url_data_fetcher=>fetch(
+        exporting
+          iv_url          = gv_url
 *    iv_nocache      = abap_false
-          importing
-            ev_content      = lv_stream
-            ev_content_type = ev_ctype
-            ev_error        = ev_error
-        ).
-        lt_data_tab = cl_bcs_convert=>xstring_to_solix( iv_xstring = lv_stream  ).
-        "-----
+        importing
+          ev_content      = lv_stream
+          ev_content_type = ev_ctype
+          ev_error        = ev_error
+      ).
+      lt_data_tab = cl_bcs_convert=>xstring_to_solix( iv_xstring = lv_stream  ).
+      "-----
 
-      when others.
-    endcase.
+    endif.
 
     lo_doc_proxy->open_document_from_table(
       exporting

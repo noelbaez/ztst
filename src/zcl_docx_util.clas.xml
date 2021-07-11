@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Utility class</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>CONV_DOCX2PDF_OLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert DOCX to PDF via OLE</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>GET_DOCX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get binary stream of DOCX</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>GO_CCONTROL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Document Container Control Interface</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>GO_DOC_PROXY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>General Document Interface</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>MERGE_DOCX_AND_CUSTOMXML</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Merge DOCX and CUSTOMXML</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>PRINT_DOCX_OLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Print DOCX via OLE</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOCX_UTIL</CLSNAME>
+     <CMPNAME>PRINT_DOCX_PROXY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Print DOCX via i_oi_document_proxy</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
