@@ -92,31 +92,37 @@ CLASS ZCL_SALV_TABLE IMPLEMENTATION.
         exit.
     endtry.
 
-    data: lr_content type ref to cl_salv_form_element.
-    build_header(
-      exporting
-        it_header  = lt_header
-      changing
-        lr_content =  lr_content
-    ).
+    if lt_header is not initial.
+      data: lr_content type ref to cl_salv_form_element.
+      build_header(
+        exporting
+          it_header  = lt_header
+        changing
+          lr_content =  lr_content
+      ).
+      osalv->set_top_of_list( lr_content ).
+    endif.
 
-    osalv->set_top_of_list( lr_content ).
-
-    data(oevents) = osalv->get_event( ).
-    set handler ohandler->on_user_command for oevents.
-    set handler ohandler->on_double_click for oevents.
+    if ohandler is bound.
+      data(oevents) = osalv->get_event( ).
+      set handler ohandler->on_user_command for oevents.
+      set handler ohandler->on_double_click for oevents.
+    endif.
 
     if ls_key is initial.
       osalv->get_layout( )->set_key( value #( report = sy-repid ) ).
     else.
       osalv->get_layout( )->set_key( ls_key ).
     endif.
+
     if l_vari is not initial.
       osalv->get_layout( )->set_initial_layout( l_vari ).
     endif.
+
     if lt_colattr is not initial.
       set_texts( lt_colattr = lt_colattr ).
     endif.
+
     osalv->get_layout( )->set_default( abap_true ).
     osalv->get_layout( )->set_save_restriction( if_salv_c_layout=>restrict_none ).
     osalv->get_functions( )->set_all( abap_true ).
@@ -127,6 +133,14 @@ CLASS ZCL_SALV_TABLE IMPLEMENTATION.
       odisplay->set_list_header( l_title ).
     endif.
 
+    if report is not initial and status is not initial.
+      osalv->set_screen_status(
+        exporting
+          report        = report                 " ABAP Program: Current Master Program
+          pfstatus      = status                 " Screens, Current GUI Status
+*       set_functions = c_functions_none " ALV: Data Element for Constants
+      ).
+    endif.
     call method osalv->display.
   endmethod.
 

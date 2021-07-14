@@ -36,7 +36,9 @@ interface ZIF_SALV
       !LT_COLATTR type TT_COLATTR optional
       !LT_HEADER type TT_HEADER optional
       !OHANDLER type ref to ZIF_SALV_HANDLER optional
-      !L_TITLE type LVC_TITLE
+      !L_TITLE type LVC_TITLE optional
+      !REPORT type SYREPID optional
+      !STATUS type SYPFKEY optional
     changing
       !C_DATA type TABLE .
   methods SET_COLTEXTS

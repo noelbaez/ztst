@@ -55,7 +55,7 @@ start-of-selection.
   ls_header-text  = '1000 SAP AG.'.
   append ls_header to it_header.
 
-ls_header-typ = ''.
+  ls_header-typ = ''.
   ls_header-label = 'Periodo'.
   ls_header-text  = '2021.06'.
   ls_header-addrow = 'X'.
@@ -64,7 +64,7 @@ ls_header-typ = ''.
   ls_header-typ = ''.
   ls_header-label = 'User'.
   ls_header-text  = 'ABC'.
-  LS_HEADER-ADDROW = ''.
+  ls_header-addrow = ''.
   append ls_header to it_header.
 
 
@@ -95,6 +95,8 @@ ls_header-typ = ''.
 *     lt_handler = it_handler
       ohandler   = ohandler2
       lt_header  = it_header
+*      report     = sy-repid
+*      status     = 'SALV_TABLE_STANDARD'
     changing
       c_data     = it_usr01.
 
