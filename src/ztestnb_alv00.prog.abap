@@ -54,10 +54,20 @@ start-of-selection.
   ls_header-label = 'Sociedad'.
   ls_header-text  = '1000 SAP AG.'.
   append ls_header to it_header.
-  ls_header-typ = ''.
+
+ls_header-typ = ''.
   ls_header-label = 'Periodo'.
   ls_header-text  = '2021.06'.
+  ls_header-addrow = 'X'.
   append ls_header to it_header.
+
+  ls_header-typ = ''.
+  ls_header-label = 'User'.
+  ls_header-text  = 'ABC'.
+  LS_HEADER-ADDROW = ''.
+  append ls_header to it_header.
+
+
   ls_header-typ = ''.
   ls_header-label = ''.
   ls_header-text  = ''.
@@ -65,7 +75,7 @@ start-of-selection.
   append ls_header to it_header.
 
   ls_colattr-colname = 'SPLD'.
-  ls_colattr-stext   = 'STEXT'.
+  ls_colattr-stext   = 'STEXTS'.
   ls_colattr-mtext   = 'STEXTM'.
   ls_colattr-ltext   = 'STEXTL'.
   data l_color type lvc_s_colo.

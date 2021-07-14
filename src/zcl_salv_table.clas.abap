@@ -63,6 +63,7 @@ CLASS ZCL_SALV_TABLE IMPLEMENTATION.
       endif.
       if ls_header-addrow = abap_true.
         ogrid1->add_row( ).
+        ADD 2 TO ROW.
       endif.
       if ls_header-logo is not initial.
         create object ologo.
