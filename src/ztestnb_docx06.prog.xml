@@ -5,10 +5,17 @@
    <PROGDIR>
     <NAME>ZTESTNB_DOCX06</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>S</RLOAD>
+    <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
+   <TPOOL>
+    <item>
+     <ID>R</ID>
+     <ENTRY>Send DOCX to printer</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+   </TPOOL>
    <I18N_TPOOL>
     <item>
      <LANGUAGE>S</LANGUAGE>

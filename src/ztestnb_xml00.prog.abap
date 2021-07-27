@@ -28,5 +28,3 @@ START-OF-SELECTION.
   RESULT XML l_xml.
 
   cl_demo_output=>display_xml( l_xml ).
-
-  BREAK-POINT.

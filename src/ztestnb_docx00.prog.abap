@@ -7,32 +7,37 @@ data gs_actdoc  type ole2_object.
 data gs_selection type ole2_object.
 
 parameters: p_file(100) lower case default 'c:\temp\Table_result.docx'.
+*parameters: p_file2(100) lower case default 'c:\temp\Template4.docx'.
 
-"Test with open -----
-create object gs_word 'WORD.APPLICATION'.
-set property of gs_word 'Visible' = '0' .
-call method of gs_word 'Documents' = gs_doc.
+start-of-selection.
+  get run time field data(t1).
+  "Test with open -----
+  create object gs_word 'WORD.APPLICATION'.
+  set property of gs_word 'Visible' = '0' .
 
-CALL METHOD OF gs_doc 'Open' = gs_doc
-EXPORTING #1 = p_file
-.
-
-"Export
+  call method of gs_word 'Documents' = gs_doc.
+  call method of gs_doc 'Open' = gs_doc
+  exporting #1 = p_file
+  .
+  "Export
 *CALL METHOD OF gs_doc 'SaveAs' EXPORTING #1 = 'C:\temp\Testa.pdf' #2 = 17.
-CALL METHOD OF gs_doc 'ExportAsFixedFormat' EXPORTING #1 = 'c:\temp\Table_result.pdf' #2 = '17'.
+  call method of gs_doc 'ExportAsFixedFormat' exporting #1 = 'c:\temp\Table_result.pdf' #2 = '17'.
 
-"Print
+  "Print
 *CALL METHOD OF gs_word 'ActiveDocument' = gs_actdoc.
 **CALL METHOD OF gs_actdoc 'PrintOut' .
 *call method of gs_word 'ActiveDocument' = gs_doc.
 *call method of gs_doc 'PrintOut' .
 
-call method of gs_word 'Quit'.
+*  call method of gs_word 'Close'.
+  call method of gs_word 'Quit'.
 
 end-of-selection.
 
   free object: gs_word, gs_docs, gs_doc, gs_actdoc, gs_selection.
-
+  get run time field data(t2).
+  t2 = t2 - t1.
+  message s000(fb) with 'Execution time'  t2  'microseconds'.
   "Test with creation, modification
 *CREATE OBJECT gs_word 'WORD.APPLICATION'.
 *SET PROPERTY OF gs_word 'VISIBLE' = '0'.

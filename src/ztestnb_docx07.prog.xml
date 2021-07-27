@@ -12,8 +12,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Docx2pdf</ENTRY>
-     <LENGTH>8</LENGTH>
+     <ENTRY>Convertir DOCX to PDF</ENTRY>
+     <LENGTH>21</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

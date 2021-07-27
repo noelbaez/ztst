@@ -29,12 +29,14 @@ data: lt_table        type table of t_table,
       lv_custom_xml   type xstring.
 
 parameters : p_file   type string default 'C:\Temp\Tableconlogo.docx' lower case obligatory.
-parameters : p_output type string default 'C:\Temp\Table_result.docx' lower case obligatory.
-parameters : p_print as checkbox default ''.
+*parameters : p_output type string default 'C:\Temp\Table_result.docx' lower case obligatory.
+*parameters : p_print as checkbox default ''.
 parameters : p_local radiobutton group gr1 DEFAULT 'X'.
 parameters : p_mime radiobutton group gr1.
 
 start-of-selection.
+split p_file at '.' into data(field1) data(field2).
+data(p_file2) = |{ field1 }2.docx|.
 
   "Fix error pics en docs.
   append `{28A0092B-C50C-407E-A947-70E740481C1C}` to lt_patterns.
@@ -209,7 +211,7 @@ start-of-selection.
   call method cl_gui_frontend_services=>gui_download
     exporting
       bin_filesize      = lv_length
-      filename          = p_output
+      filename          = p_file2
       filetype          = 'BIN'
       confirm_overwrite = ''
     changing

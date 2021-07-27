@@ -5,10 +5,17 @@
    <PROGDIR>
     <NAME>ZTESTNB_DOCX2</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>S</RLOAD>
+    <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
+   <TPOOL>
+    <item>
+     <ID>R</ID>
+     <ENTRY>Load DOCX, merge &amp; download</ENTRY>
+     <LENGTH>27</LENGTH>
+    </item>
+   </TPOOL>
    <I18N_TPOOL>
     <item>
      <LANGUAGE>S</LANGUAGE>

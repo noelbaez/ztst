@@ -40,6 +40,9 @@ public section.
       CX_OPENXML_FORMAT
       CX_OPENXML_NOT_FOUND
       CX_MERGE_PARTS .
+  class-methods FIX_DOCX_PICTURES
+    changing
+      !LR_DOCX type ref to CL_DOCX_DOCUMENT .
 protected section.
 private section.
 
@@ -101,6 +104,64 @@ CLASS ZCL_DOCX_UTIL IMPLEMENTATION.
       e_pdf_stream = cl_bcs_convert=>solix_to_xstring( it_solix = it_solix iv_size = lv_length ).
       e_pdf_length = lv_length.
     endif.
+  endmethod.
+
+
+  method fix_docx_pictures.
+    types: begin of ty_replace,
+             source type xstring,
+             target type xstring,
+           end of ty_replace.
+
+    data: lt_patterns type table of string.
+    data: lt_replace  type table of ty_replace.
+
+    "Fix error pics en docs.
+    append `{28A0092B-C50C-407E-A947-70E740481C1C}` to lt_patterns.
+    append `{96DAC541-7B7A-43D3-8B79-37D633B846F1}` to lt_patterns.
+
+    loop at lt_patterns assigning field-symbol(<fp>).
+      append initial line to lt_replace assigning field-symbol(<frep>).
+      try.
+          <frep>-source = cl_bcs_convert=>string_to_xstring( <fp> ).
+          <frep>-target = cl_bcs_convert=>string_to_xstring( |\{{ <fp> }\}| ).
+        catch cx_bcs.
+      endtry.
+    endloop.
+
+    try.
+        data(lo_main_part) = lr_docx->get_maindocumentpart( ).
+        data(lv_document) = lo_main_part->get_data( ).
+        data(lv_replaces) = lines( lt_replace ).
+        loop at lt_replace assigning <frep>.
+          replace all occurrences of <frep>-source in lv_document with <frep>-target in byte mode.
+*  replace x in lv_document with y in byte mode.
+          if sy-subrc eq 0.
+            data(xchanged) = abap_true.
+          endif.
+        endloop.
+        if xchanged = abap_true.
+          lo_main_part->feed_data( lv_document ).
+        else.
+          data(lo_header_parts) = lo_main_part->get_headerparts( ).
+          data(lv_header_count) = lo_header_parts->get_count( ).
+          do lv_header_count times.
+            data(lo_header_part) = lo_header_parts->get_part( sy-index - 1 ).
+            data(lv_header_data) = lo_header_part->get_data( ).
+            loop at lt_replace assigning <frep>.
+              replace all occurrences of <frep>-source in lv_header_data with <frep>-target in byte mode.
+              if sy-subrc eq 0.
+                xchanged = abap_true.
+              endif.
+            endloop.
+            if xchanged = abap_true.
+              lo_header_part->feed_data( lv_header_data ).
+            endif.
+          enddo.
+        endif.
+      catch cx_openxml_format cx_openxml_not_found.
+    endtry.
+
   endmethod.
 
 

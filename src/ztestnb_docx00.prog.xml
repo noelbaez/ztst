@@ -5,10 +5,17 @@
    <PROGDIR>
     <NAME>ZTESTNB_DOCX00</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>S</RLOAD>
+    <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
+   <TPOOL>
+    <item>
+     <ID>R</ID>
+     <ENTRY>Convertir DOCX to PDF</ENTRY>
+     <LENGTH>21</LENGTH>
+    </item>
+   </TPOOL>
    <I18N_TPOOL>
     <item>
      <LANGUAGE>S</LANGUAGE>

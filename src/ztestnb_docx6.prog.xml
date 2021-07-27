@@ -188,8 +188,8 @@
     </item>
     <item>
      <ID>R</ID>
-     <ENTRY>Imprimir docx</ENTRY>
-     <LENGTH>14</LENGTH>
+     <ENTRY>Print DOCX via i_oi_document_proxy</ENTRY>
+     <LENGTH>34</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

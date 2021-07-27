@@ -1,15 +1,16 @@
 report zprg_print_docx_proxy.
 
-data save_ok type sy-ucomm.
-data ok_code type sy-ucomm.
-data error   type ref to i_oi_error.
-data retcode type soi_ret_string.
+*data save_ok type sy-ucomm.
+*data ok_code type sy-ucomm.
+*data error   type ref to i_oi_error.
+*data retcode type soi_ret_string.
 
-data ocont type ref to cl_gui_custom_container.
+*data ocont type ref to cl_gui_custom_container.
 data lo_control type ref to i_oi_container_control.
-data : lo_doc_proxy type ref to i_oi_document_proxy,
-       lo_error     type ref to i_oi_error,
-       ls_retcode   type soi_ret_string.
+data : lo_doc_proxy type ref to i_oi_document_proxy.
+*       lo_error     type ref to i_oi_error,
+*       ,
+*       ls_retcode   type soi_ret_string.
 *data : lv_error_msg type string.
 
 parameters: p_mime  type string default 'r3mime:/sap/public/invoice1.docx' lower case.
@@ -95,10 +96,11 @@ start-of-selection.
 *    protect_document = ' '
 *    onsave_macro     = ' '              " OnSave Macro Name
 *    startup_macro    = ''
-      importing
-        error            = error
-        retcode          = retcode
-    ).
+*      importing
+*        error            = error
+*        retcode          = retcode
+    )
+    .
 
     "Print
     do p_copies times.
@@ -106,9 +108,9 @@ start-of-selection.
         exporting
           no_flush    = ' '
           prompt_user = ' '
-        importing
-          error       = error
-          retcode     = retcode
+*        importing
+*          error       = error
+*          retcode     = retcode
       ).
     enddo.
 *
