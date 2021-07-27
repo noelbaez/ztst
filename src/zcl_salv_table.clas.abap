@@ -133,11 +133,11 @@ CLASS ZCL_SALV_TABLE IMPLEMENTATION.
       odisplay->set_list_header( l_title ).
     endif.
 
-    if report is not initial and status is not initial.
+    if l_report is not initial and l_status is not initial.
       osalv->set_screen_status(
         exporting
-          report        = report                 " ABAP Program: Current Master Program
-          pfstatus      = status                 " Screens, Current GUI Status
+          report        = l_report                 " ABAP Program: Current Master Program
+          pfstatus      = l_status                 " Screens, Current GUI Status
 *       set_functions = c_functions_none " ALV: Data Element for Constants
       ).
     endif.

@@ -95,8 +95,8 @@ start-of-selection.
 *     lt_handler = it_handler
       ohandler   = ohandler2
       lt_header  = it_header
-*      report     = sy-repid
-*      status     = 'SALV_TABLE_STANDARD'
+*      l_report     = sy-repid
+*      l_status     = 'SALV_TABLE_STANDARD'
     changing
       c_data     = it_usr01.
 
