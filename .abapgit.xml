@@ -5,10 +5,6 @@
    <MASTER_LANGUAGE>E</MASTER_LANGUAGE>
    <STARTING_FOLDER>/src/</STARTING_FOLDER>
    <FOLDER_LOGIC>PREFIX</FOLDER_LOGIC>
-   <IGNORE>
-    <item>/src/0242ac1100021eebb8bcd0ae1c53de35.smim.invoice1.docx</item>
-    <item>/src/0242ac1100021eebb8bcd0ae1c53de35.smim.xml</item>
-   </IGNORE>
   </DATA>
  </asx:values>
 </asx:abap>

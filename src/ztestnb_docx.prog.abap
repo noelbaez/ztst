@@ -6,6 +6,7 @@ data gs_doc  type ole2_object.
 data gs_actdoc  type ole2_object.
 data gs_selection type ole2_object.
 
+
 *parameters: p_file(100) lower case default 'c:\temp\testa.docx'.
 
 "Test with open -----
